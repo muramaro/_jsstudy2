@@ -30,6 +30,7 @@
   <button class="btn_toggle">배경색상변경_토글버튼</button>
   <button class="btn--reset">배경색상_리셋</button>
   <button class="btn--bggray">배경색상변경_그레이</button>
+  
   </div>
   <script>
     const btntoggle = document.querySelector('.btn_toggle');
@@ -39,11 +40,11 @@
       // console.log('버튼클릭');
     });
     const btnReset = document.querySelector('.btn--reset');
-    const btnBgGray = document.querySelector('.btn--bggray');
-    btntoggle.addEventListener('click', function() {
-      document.body.classList.remove('bgcolor--blue');
-      document.body.classList.remove('bgcolor--gray');
+      btntoggle.addEventListener('click', function() {
+      document.body.classList.remove('bgcolor--blue','bgcolor--gray');
     });
+
+    const btnBgGray = document.querySelector('.btn--bggray');
     btnBgGray.addEventListener('click', function(){
       document.body.classList.add('bgcolor--gray');
     });
