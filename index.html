@@ -6,15 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    
     body {
             background-color: lightyellow;
         }
-        .bgcolor_blue {
+        .bgcolor--blue {
             background-color: lightblue;
         }
-        .bgcolor_gray {
+        .bgcolor--gray {
             background-color: lightgray;
+        }
+        .bg--img{
+          background: url('bgimg.jpeg');
         }
     .btns{
       position: relative;
@@ -25,26 +27,37 @@
     }
   </style>
 </head>
-<body>
+<body class>
   <div class="btns">
-  <button class="btn_toggle">배경색상변경_토글버튼</button>
-  <button class="btn_reset">배경색상_리셋</button>
-  <button class="btn_gray">배경색상변경_그레이</button>
+  <button class="btn_toggle">배경색상변경 토글버튼</button>
+  <button class="btn--reset">배경색상 리셋</button>
+  <button class="btn--gray">배경색상변경 그레이</button>
+  <button class="btn--bgimg">배경이미지</button>
 
   </div>
   <script>
-    const btnToggle = document.querySelector('.btn_toggle');
-btnToggle.addEventListener('click', function(){
-    document.body.classList.toggle('bgcolor_blue');
-});
-const btnReset = document.querySelector('.btn_reset');
-btnReset.addEventListener('click', function(){
-    document.body.classList.remove('bgcolor_blue', 'bgcolor_gray');
-});
-const btnGray = document.querySelector('.btn_gray');
-btnGray.addEventListener('click', function(){
-    document.body.classList.add('bgcolor_gray');
-});
+  
+  const btnToggle = document.querySelector('.btn_toggle');
+    // addEventListener('이벤트', 실행함수);
+    btnToggle.addEventListener('click', function () {
+      document.body.classList.toggle('bgcolor--blue');
+      document.body.classList.remove('bg--img');
+      // console.log('버튼클릭');
+    });
+    const btnReset = document.querySelector('.btn--reset');
+    btnReset.addEventListener('click', function () {
+      document.body.classList.remove('bgcolor--blue', 'bgcolor--gray','bg--img');
+    });
+
+    const btnBgGray = document.querySelector('.btn--gray');
+    btnBgGray.addEventListener('click', function () {
+      document.body.classList.remove('bg--img');
+      document.body.classList.add('bgcolor--gray');
+    });
+    const btnBgImg = document.querySelector('.btn--bgimg');
+    btnBgImg.addEventListener('click', function () {
+      document.body.classList.add('bg--img');
+    });
   </script>
 
 
