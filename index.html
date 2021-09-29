@@ -9,7 +9,7 @@
     body {
             background-color: lightyellow;
             transition: all 1s;
-            height:  ;
+            height: 2000px;
             margin: 0;
         }
     .bgcolor--blue {
@@ -37,9 +37,18 @@
           transition: all 1s;
           opacity: 0;
     }
-    .bg_img--show{
+    .bg_img--show {
           opacity: 1;
         }
+    .btns {
+      position: fixed;
+      padding: 10px;
+      background-color: transparent;
+      transition: 0.3s;
+    }
+    .btns.bgshow {
+      background-color: tomato;
+    }
   </style>
 </head>
 
@@ -79,6 +88,15 @@
     btnBgImg.addEventListener('click', function () {
       //document.body.classlist.add('bg--img')
       bgContainer.classList.add('bg_img--show');
+    });
+    const navContainer = document.querySelector('.btns')
+    document.addEventListener('scroll', function () {
+      //console.log(Window.scollY);
+      if (window.scollY > 100) {
+        navContainer.classList.add('bgshow');
+      }else {
+        navContainer.classList.remove('bgshow');
+      }
     });
   </script>
 
