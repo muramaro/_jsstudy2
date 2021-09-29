@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>gimyeoung</title>
   <style>
     body {
             background-color: lightyellow;
+            transition: all 1s;
+            height:  ;
+            margin: 0;
         }
-        .bgcolor--blue {
+    .bgcolor--blue {
             background-color: lightblue;
         }
-        .bgcolor--gray {
+    .bgcolor--gray {
             background-color: lightgray;
-        }
-        .bg--img{
-          background: url('bgimg.jpeg');
         }
     .btns{
       position: relative;
@@ -24,39 +24,61 @@
       width: 600px;
       margin: auto;
       text-align: center;
+        }
+      /*.bg--img{
+          background: url('bgimg.jpeg');
+        }*/
+    .bg__img {
+          margin: 0;
+          position: absolute;
+          width: 100vw;
+          height: 100vw;
+          background: url('bgimg.jpeg');
+          transition: all 1s;
+          opacity: 0;
     }
+    .bg_img--show{
+          opacity: 1;
+        }
   </style>
 </head>
-<body class>
-  <div class="btns">
-  <button class="btn_toggle">배경색상변경 토글버튼</button>
-  <button class="btn--reset">배경색상 리셋</button>
-  <button class="btn--gray">배경색상변경 그레이</button>
-  <button class="btn--bgimg">배경이미지</button>
 
-  </div>
+<body>
+  <div class="bg__img"></div>
+      <div class="btns">
+        <button class="btn_toggle">배경색상변경 토글버튼</button>
+        <button class="btn--reset">배경색상 리셋</button>
+        <button class="btn--gray">배경색상변경 그레이</button>
+        <button class="btn--bgimg">배경이미지</button>
+      </div>
+  
   <script>
   
-  const btnToggle = document.querySelector('.btn_toggle');
+    const btnToggle = document.querySelector('.btn_toggle');
     // addEventListener('이벤트', 실행함수);
     btnToggle.addEventListener('click', function () {
       document.body.classList.toggle('bgcolor--blue');
-      document.body.classList.remove('bg--img');
+      //document.body.classList.remove('bg--img');
       // console.log('버튼클릭');
     });
     const btnReset = document.querySelector('.btn--reset');
     btnReset.addEventListener('click', function () {
+      bgContainer.classList.remove('bg_img--show');
       document.body.classList.remove('bgcolor--blue', 'bgcolor--gray','bg--img');
     });
 
     const btnBgGray = document.querySelector('.btn--gray');
     btnBgGray.addEventListener('click', function () {
-      document.body.classList.remove('bg--img');
+      //document.body.classList.remove('bg--img');
+      bgContainer.classList.remove('bg_img--show');
       document.body.classList.add('bgcolor--gray');
     });
+
+    const bgContainer = document.querySelector('.bg__img')
     const btnBgImg = document.querySelector('.btn--bgimg');
     btnBgImg.addEventListener('click', function () {
-      document.body.classList.add('bg--img');
+      //document.body.classlist.add('bg--img')
+      bgContainer.classList.add('bg_img--show');
     });
   </script>
 
