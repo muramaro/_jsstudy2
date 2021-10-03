@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,12 +19,23 @@
             background-color: lightgray;
         }
     .btns{
-      position: relative;
+      position: fixed;
       top: 60px;
       width: 600px;
       margin: auto;
+      padding-top: 30px;
+      padding-bottom: 30px;
       text-align: center;
+      background-color: transparent;
         }
+    button{
+      border: none;
+      border-radius: 5px;
+      color: brown;
+      width: 140px;
+      height: 50px;
+      background-color: bisque;
+    }
       /*.bg--img{
           background: url('bgimg.jpeg');
         }*/
@@ -32,7 +43,7 @@
           margin: 0;
           position: absolute;
           width: 100vw;
-          height: 100vw;
+          height: 100vh;
           background: url('bgimg.jpeg');
           transition: all 1s;
           opacity: 0;
@@ -40,14 +51,8 @@
     .bg_img--show {
           opacity: 1;
         }
-    .btns {
-      position: fixed;
-      padding: 10px;
-      background-color: transparent;
-      transition: 0.3s;
-    }
     .btns.bgshow {
-      background-color: tomato;
+      background-color:tomato;
     }
   </style>
 </head>
@@ -73,7 +78,7 @@
     const btnReset = document.querySelector('.btn--reset');
     btnReset.addEventListener('click', function () {
       bgContainer.classList.remove('bg_img--show');
-      document.body.classList.remove('bgcolor--blue', 'bgcolor--gray','bg--img');
+      document.body.classList.remove('bgcolor--blue','bgcolor--gray','bg--img');
     });
 
     const btnBgGray = document.querySelector('.btn--gray');
@@ -91,8 +96,7 @@
     });
     const navContainer = document.querySelector('.btns')
     document.addEventListener('scroll', function () {
-      //console.log(Window.scollY);
-      if (window.scollY > 100) {
+      if (window.scrollY > 100) {
         navContainer.classList.add('bgshow');
       }else {
         navContainer.classList.remove('bgshow');
