@@ -5,6 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gimyeoung</title>
+  <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script src="https://unpkg.com/ionicons@4.5.9-1/dist/ionicons.js"></script>
+  <a href="#" class="topScrollButton"><ion-icon name="arrow-round-up"></ion-icon></a>
+
   <style>
     *{
       margin: 0;
@@ -66,6 +70,30 @@
     .btns.bgshow {
       background-color:tomato;
     }
+    /* 스크롤버튼 */
+    a.topScrollButton {
+      position: fixed;
+      right: 30px; 
+      bottom: 30px; 
+      border-radius: 0px; 
+      color: #ffffff;
+      text-align: center; 
+      width: 50px; 
+      height: 50px; 
+      font-size: 50px; 
+      font-weight: bold; 
+      /*background-color: rgba(50,50,50,0.5);*/ 
+      background-color:blue;
+      opacity:0.5;  
+      filter:alpha(opacity=50); 
+      z-index: 999;
+      display: none;
+    }
+    
+      a.topScrollButton:hover{
+        background-color:aqua;
+      }
+
   </style>
 </head>
 
@@ -77,7 +105,6 @@
         <button class="btn--gray">배경색상변경 그레이</button>
         <button class="btn--bgimg">배경이미지</button>
       </div>
-  
   <script>
   
     const btnToggle = document.querySelector('.btn_toggle');
@@ -114,6 +141,16 @@
         navContainer.classList.remove('bgshow');
       }
     });
+    $( document ).ready( function() {
+      $( window ).scroll( function() { 
+        if ( $( this ).scrollTop() > 100 ) { 
+          $( '.topScrollButton' ).fadeIn(); } 
+          else { $( '.topScrollButton' ).fadeOut(); } } ); 
+          $( '.topScrollButton' ).click( function() { 
+            $( 'html, body' ).animate( { scrollTop : 0 }, 500 ); 
+            return false; } ); } );
+
+
   </script>
 
 
